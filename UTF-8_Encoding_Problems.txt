@@ -1,0 +1,24 @@
+﻿================================================================================
+Visual Studio 2017 - UTF-8 Encoding Problems
+================================================================================
+
+WindowsProject1: 
+----------------
+Created from scratch, using menu 
+   File->New->Project... Visul C++/Windows Desktop -> Windows-Desktop-Application
+   
+Changes:
+--------
++ WindowsProject1.rc:
+  - Converting to UTF-8 encoded File
+  - splitting and including:
+     commonres.rc (exclude from build, but included in WindowsProject1.rc)
+     menu.rc      (exclude from build, but included in WindowsProject1.rc)
+     dialogs.rc   (exclude from build, but included in WindowsProject1.rc)
+     strings.rc   (exclude from build, but included in WindowsProject1.rc)
+
++ replacing LTEXT in Aboutbox dialog by readonly EDITTEXT control 
+  to show text of foreign languages
+  
+  
+  
