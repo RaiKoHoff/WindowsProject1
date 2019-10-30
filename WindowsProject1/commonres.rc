@@ -1,5 +1,6 @@
-// Microsoft Visual C++ generated resource script.
-//
+﻿// Microsoft Visual C++ generated resource script.
+// encoding="utf-8"
+#pragma code_page(65001)  // UTF-8
 #include "commonres.h"
 
 #define APSTUDIO_READONLY_SYMBOLS
@@ -12,7 +13,6 @@
 /////////////////////////////////////////////////////////////////////////////
 #undef APSTUDIO_READONLY_SYMBOLS
 
-#pragma code_page(65001)  // UTF-8
 
 #ifdef APSTUDIO_INVOKED
 /////////////////////////////////////////////////////////////////////////////
