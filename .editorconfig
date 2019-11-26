@@ -21,5 +21,15 @@ indent_style = space
 indent_size = 2
 tab_width = 2
 
+[**.{ini}]
+charset = utf-8-sig
+
+[language/**.{h,rc}]
+charset = utf-8
+# space (w=4) indentation
+indent_style = space
+indent_size = 4
+tab_width = 4
+
 
 
