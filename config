@@ -1,0 +1,19 @@
+[core]
+	repositoryformatversion = 0
+	filemode = false
+	bare = false
+	logallrefupdates = true
+	symlinks = false
+	ignorecase = true
+[remote "hpwamr"]
+	url = https://github.com/hpwamr/WindowsProject1
+	fetch = +refs/heads/*:refs/remotes/hpwamr/*
+[remote "raikohoff"]
+	url = https://github.com/RaiKoHoff/WindowsProject1
+	fetch = +refs/heads/*:refs/remotes/raikohoff/*
+[branch "master"]
+	remote = hpwamr
+	merge = refs/heads/master
+[commit]
+	gpgsign = true
+	signingkey = CA8DC330CDB482FA
