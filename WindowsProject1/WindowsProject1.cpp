@@ -4,6 +4,11 @@
 #include "stdafx.h"
 #include "WindowsProject1.h"
 
+#include <intsafe.h>
+
+#include <CommCtrl.h>
+
+
 #define MAX_LOADSTRING 128
 #define MAX_LOADTEXT 4096
 
@@ -19,6 +24,8 @@ BOOL                InitInstance(HINSTANCE, int);
 LRESULT CALLBACK    WndProc(HWND, UINT, WPARAM, LPARAM);
 INT_PTR CALLBACK    About(HWND, UINT, WPARAM, LPARAM);
 
+HICON hDlgIcon256 = nullptr;
+
 int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
                      _In_opt_ HINSTANCE hPrevInstance,
                      _In_ LPWSTR    lpCmdLine,
@@ -28,6 +35,12 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     UNREFERENCED_PARAMETER(lpCmdLine);
 
     // TODO: Hier Code einfügen.
+
+    if (!hDlgIcon256) {
+      if (FAILED(LoadIconWithScaleDown(hInstance, MAKEINTRESOURCE(IDR_MAINWND), 256, 256, &hDlgIcon256))) {
+        hDlgIcon256 = (HICON)LoadImage(hInstance, MAKEINTRESOURCE(IDR_MAINWND), IMAGE_ICON, 256, 256, LR_DEFAULTCOLOR | LR_SHARED);
+      }
+    }
 
     // Globale Zeichenfolgen initialisieren
     LoadStringW(hInstance, IDS_APP_TITLE, szTitle, MAX_LOADSTRING);
@@ -53,6 +66,10 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
             TranslateMessage(&msg);
             DispatchMessage(&msg);
         }
+    }
+
+    if (hDlgIcon256) {
+      DestroyIcon(hDlgIcon256);
     }
 
     return (int) msg.wParam;
@@ -150,6 +167,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             PAINTSTRUCT ps;
             HDC hdc = BeginPaint(hWnd, &ps);
             // TODO: Zeichencode, der hdc verwendet, hier einfügen...
+            (void)hdc;
             EndPaint(hWnd, &ps);
         }
         break;
